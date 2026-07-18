@@ -372,9 +372,8 @@
 
 // export default App;
 
-
-//! 10-07-2026 
-//! useMemo 
+//! 10-07-2026
+//! useMemo
 // import MemmoComponent from './useMemo/MemmoComponent'
 
 // function App() {
@@ -387,8 +386,7 @@
 
 // export default App
 
-
-//! useState Task 
+//! useState Task
 // import React from 'react'
 // import State from './UseState/State'
 
@@ -414,7 +412,7 @@
 
 //  let [age, setAge] = useState(25);
 //  let [salary, setSalary] =useState(10000);
- 
+
 //  let handleAge = useCallback(() =>
 //  {
 //   setAge(age + 1);
@@ -436,7 +434,6 @@
 // }
 
 // export default App
-
 
 //! 15-07-2026
 //! Adding Styles
@@ -461,7 +458,6 @@
 
 // export default App
 
-
 //! NavBar Task
 // import NavBar from './AddingStyles/NavBar'
 
@@ -475,19 +471,18 @@
 
 // export default App
 
+//! 17-07-2026
+//! ControlledComponent
 
-//! 17-07-2026 
-//! ControlledComponent 
-
-import React from 'react'
-import ControlledComponent from './FormHandling/ControlledComponent'
+import React from "react";
+import ControlledComponent from "./FormHandling/ControlledComponent";
 
 function App() {
   return (
     <div>
-      <ControlledComponent/>
+      <ControlledComponent />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
