@@ -1,0 +1,21 @@
+*
+{
+  margin: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+h1
+{
+  color: pink;
+}
+
+p
+{
+  background-color: khaki;
+}
+button
+{
+  color: lightcoral;
+  background-color: lightgreen;
+}

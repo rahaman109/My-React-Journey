@@ -1,0 +1,23 @@
+*
+{
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#id
+{
+  color: lime;
+}
+
+.para
+{
+  color: darkgray;
+  background-color: black;
+}
+
+.btn
+{
+  color: white;
+  background-color: black;
+}
