@@ -20,7 +20,6 @@
 
 // export default ControlledComponent
 
-
 //! Example - 2
 
 // import React, { useState } from 'react'
@@ -39,12 +38,12 @@
 //     ...details,
 //     [name]: value
 //   })
-// } 
+// }
 
 // let handleSubmit = (e) =>
 // {
 //   e.preventDefault()
-//   console.log(details); 
+//   console.log(details);
 // }
 
 //   return (
@@ -60,7 +59,7 @@
 //           <br /><br />
 //           <label htmlFor='password'>Password: </label>
 //           <input type="password" id='password' name='password' value={password} onChange={handleChange}/>
-//           <br /><br />  
+//           <br /><br />
 //           <input type="button" value="Register"/>
 //         </fieldset>
 //       </form>
@@ -72,60 +71,119 @@
 
 //! Example - 3
 
-import React, { useState } from 'react'
 
-function ControlledComponent() {
+import { useState } from 'react'
+const ControlledComponent = () => {
   let [details, setDetails] = useState({
-    name:"",
-    email:"",
-    password:"",
-    date:"",
-    dateTime:"",
-    time:""
+    name: "",
+    email: "",
+    password: "",
+    age: "",
+    phone: "",
+    date: "",
+    datetime: "",
+    week: "",
+    month: "",
+    time: "",
+    gender: "",
+    skills: [],
+    photo: "",
+    country: "",
+    feedback: "",
+    color: "#000000",
+    brightness: ""
   })
+  let { name, email, password, age, phone, date, datetime, week, month, time, gender, skills, photo, country, feedback, color, brightness } = details
 
-  let {name, email, password, date, dateTime, time} = details;
-
-
-  let handleChange = (e) =>
-  {
-    let {name, value} = e.target;
-
-    setDetails({
-      ...details,
-      [name] : value
-    })
+  let handleChange = (e) => {
+    let { name, value, type, checked, files } = e.target
+    if (type === "checkbox") {
+      let copiedSkills = [...skills]
+      if (checked) {
+        copiedSkills.push(value)
+      } else {
+        copiedSkills = copiedSkills.filter(item => item !== value)
+      }
+      setDetails({ ...details, [name]: copiedSkills })
+    } else if (type === "file") {
+      setDetails({ ...details, [name]: files[0] })
+    } else {
+      setDetails({ ...details, [name]: value })
+    }
   }
 
-  let handleSubmit = (e) =>
-  {
-    e.preventDefault();
-    console.log(details);
+  let handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(details)
   }
-
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend>Form 📝</legend>
-        <label htmlFor="name">Name: </label>
-        <input type="text" id='name' name='name'value={name}  onChange={handleChange}/>
+    <form onSubmit={handleSubmit}>
+      <fieldset>
+        <legend>Registration  htmlForm 🔥</legend>
+        <label htmlFor="name">Name:</label>
+        <input type="text" id='name' name='name' value={name} onChange={handleChange} />
         <br /><br />
-        <label htmlFor="email">Email: </label>
-        <input type="email" id='email' name='email'value={email}  onChange={handleChange}/>
+        <label htmlFor="email">Email:</label>
+        <input type="email" id='email' name='email' value={email} onChange={handleChange} />
         <br /><br />
-        <label htmlFor="password">Password: </label>
-        <input type="password" id='password'name='password' value={password}  onChange={handleChange}/>
+        <label htmlFor="password">Password:</label>
+        <input type="password" id='password' name='password' value={password} onChange={handleChange} />
         <br /><br />
-        <input type="date" name='date'value={date}  onChange={handleChange}/>
-        <input type="datetime-local" name='dateTime' value={dateTime}  onChange={handleChange} />
-        <input type="time" name='time'value={time}  onChange={handleChange} />
+        <label htmlFor="age">Age:</label>
+        <input type="number" name="age" id="age" value={age} onChange={handleChange} />
         <br /><br />
-        <input type="submit" value="Register"/>
-        </fieldset>
-      </form>
-    </div>
+        <label htmlFor="phone">Phone:</label>
+        <input type="tel" name="phone" id="phone" value={phone} onChange={handleChange} />
+        <br /><br />
+        <label htmlFor="dob">Dob:</label>
+        <input type="date" name="date" id="dob" value={date} onChange={handleChange} />
+        <input type="datetime-local" name="datetime" value={datetime} onChange={handleChange} />
+        <input type="week" name="week" value={week} onChange={handleChange} />
+        <input type="month" name="month" value={month} onChange={handleChange} />
+        <input type="time" name="time" value={time} onChange={handleChange} />
+        <br /><br />
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male" onChange={handleChange} />
+        <label htmlFor="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female" onChange={handleChange} />
+        <label htmlFor="female">Female</label>
+        <br /><br />
+        <label>Skills:</label>
+        <input type="checkbox" id="html" name="skills" value="Html" onChange={handleChange} />
+        <label htmlFor="html">Html</label>
+        <input type="checkbox" id="css" name="skills" value="Css" onChange={handleChange} />
+        <label htmlFor="css">Css</label>
+        <input type="checkbox" id="js" name="skills" value="Js" onChange={handleChange} />
+        <label htmlFor="js">Js</label>
+        <input type="checkbox" id="react" name="skills" value="ReactJs" onChange={handleChange} />
+        <label htmlFor="react">ReactJS</label>
+        <br /><br />
+        <label htmlFor="photo">Upload Photo:</label>
+        <input type="file" id="photo" name="photo" onChange={handleChange} />
+        <br /><br />
+        <label htmlFor="country">Country:</label>
+        <select id="country" name="country" value={country} onChange={handleChange}>
+          <option hidden>-- Select Country --</option>
+          <option value="India">India</option>
+          <option value="Usa">Usa</option>
+          <option value="Australia">Australia</option>
+          <option value="Russia">Russia</option>
+          <option value="Germany">Germany</option>
+        </select>
+        <br /><br />
+        <label htmlFor="feedback">Feedback:</label>
+        <textarea id="feedback" rows="5" cols="50" name="feedback" value={feedback} onChange={handleChange}></textarea>
+        <br /><br />
+        <label htmlFor="color">Select Color:</label>
+        <input type="color" id="color" name="color" value={color} onChange={handleChange} />
+        <br /><br />
+        <label htmlFor="range">Brightness:</label>
+        <input type="range" name="brightness" min="0" max="100" value={brightness} onChange={handleChange} />
+        <br /><br />
+        <input type="submit" value="Register" />
+        <input type="reset" value="Clear" />
+      </fieldset>
+    </form>
   )
 }
-
 export default ControlledComponent
