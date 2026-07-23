@@ -474,15 +474,32 @@
 //! 17-07-2026
 //! ControlledComponent
 
-import React from "react";
-import ControlledComponent from "./FormHandling/ControlledComponent";
+// import React from "react";
+// import ControlledComponent from "./FormHandling/ControlledComponent";
+
+// function App() {
+//   return (
+//     <div>
+//       <ControlledComponent />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+//! 23-07-2026 
+//! Axios 
+
+import React from 'react'
+import FetchData from './Axios/FetchData'
 
 function App() {
   return (
     <div>
-      <ControlledComponent />
+      <FetchData/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
