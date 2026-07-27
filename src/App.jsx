@@ -487,19 +487,61 @@
 
 // export default App;
 
+//! 23-07-2026
+//! Axios
 
-//! 23-07-2026 
-//! Axios 
+// import React from 'react'
+// import FetchData from './Axios/FetchData'
 
-import React from 'react'
-import FetchData from './Axios/FetchData'
+// function App() {
+//   return (
+//     <div>
+//       <FetchData/>
+//     </div>
+//   )
+// }
 
-function App() {
+// export default App
+
+// ! 24-07-2026
+//! Router..
+
+import { Routes, Route } from "react-router-dom"
+import Home from "./Router/Home"
+import About from "./Router/About"
+import Contact from "./Router/Contact"
+import NotFound from "./Router/NotFound"
+import Navbar from "./Router/Navbar"
+import "./Router.css"
+import Student from "./Router/Student"
+import Login from "./Router/Login"
+import Dashboard from "./Router/Dashboard"
+import ProtectedRoute from "./Router/ProtectedRoute"
+import Profile from "./Router/Profile"
+import Orders from "./Router/Orders"
+import Services from "./Router/Services"
+const App = () => {
   return (
-    <div>
-      <FetchData/>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/student/:id/:name" element={<Student />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        } >
+              <Route path="profile" element={<Profile/>}/>
+              <Route path="services" element={<Services/>}/>
+              <Route path="orders" element={<Orders/>}/>
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   )
 }
-
 export default App
